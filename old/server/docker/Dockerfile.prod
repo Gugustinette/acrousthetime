@@ -1,0 +1,25 @@
+# From OpenJDK 17
+FROM openjdk:17-jdk-slim
+
+# Copy pom.xml
+COPY pom.xml /app/pom.xml
+COPY mvnw /app/mvnw
+COPY .mvn /app/.mvn
+
+# Set the working directory
+WORKDIR /app
+
+# Install the dependencies
+RUN ./mvnw -q verify clean --fail-never
+
+# Copy application source
+COPY src /app/src
+
+# Build the application
+RUN ./mvnw package -DskipTests
+
+# Expose the port
+EXPOSE 8080
+
+# Run the built war file
+ENTRYPOINT ["java", "-jar", "target/gusmetal-0.0.1-SNAPSHOT.war"]

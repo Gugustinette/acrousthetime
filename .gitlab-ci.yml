@@ -1,0 +1,180 @@
+# Gitlab CI Configuration
+
+stages:
+  - test
+  - prebuild
+  - build
+  - deploy
+
+cache:
+  paths:
+    - server/target/
+    - front/node_modules/
+    - mobile/.gradle/
+
+# Pipelines
+test-back:
+  image: openjdk:17-jdk-slim
+  stage: test
+  tags:
+    - gusdocker
+  script:
+    - cd server
+    - ./mvnw clean install -DskipTests
+    - ./mvnw test -Dspring.profiles.active=test
+  rules:
+    # On test uniquement si on est sur la branche main
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On test uniquement si du code a été modifié dans le dossier server
+      changes:
+        - server/src/**/*
+        - server/pom.xml
+test-front:
+  image: node:18.16.0
+  stage: test
+  tags:
+    - gusdocker
+  script:
+    - cd front
+    - npm install
+    # - npm run test
+  rules:
+    # On test uniquement si on est sur la branche main
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On test uniquement si du code a été modifié dans le dossier front
+      changes:
+        - front/app/**/*
+        - front/public/**/*
+        - front/package.json
+        - front/next.config.js
+        - front/tsconfig.json
+test-mobile:
+  image: jangrewe/gitlab-ci-android
+  stage: test
+  tags:
+    - gusdocker
+  before_script:
+    - export GRADLE_USER_HOME=$(pwd)/.gradle
+    - chmod +x ./mobile/gradlew
+    - java -version
+  script:
+    - cd mobile
+    - ./gradlew clean testDebugUnitTest
+  rules:
+    # On test uniquement si on est sur la branche main
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On test uniquement si du code a été modifié dans le dossier mobile
+      changes:
+        - mobile/app/**/*
+        - mobile/build.gradle
+        - mobile/gradle.properties
+        - mobile/settings.gradle
+build-mobile:
+  image: jangrewe/gitlab-ci-android
+  stage: prebuild
+  tags:
+    - gusdocker
+  before_script:
+    - export GRADLE_USER_HOME=$(pwd)/.gradle
+    - chmod +x ./mobile/gradlew
+    - java -version
+  script:
+    - cd mobile
+    - ./gradlew assembleDebug
+  rules:
+    # On build uniquement si on est sur la branche main et que les tests ont réussi
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On build uniquement si du code a été modifié dans le dossier mobile (ou front, car on a besoin de l'apk pour le build front)
+      changes:
+        - front/app/**/*
+        - front/public/**/*
+        - front/package.json
+        - front/next.config.js
+        - front/tsconfig.json
+        - mobile/app/**/*
+        - mobile/build.gradle
+        - mobile/gradle.properties
+        - mobile/settings.gradle
+      when: on_success
+  artifacts:
+    paths:
+      - mobile/app/build/outputs/apk/debug/app-debug.apk
+build-back:
+  # On utilise le runner shell pour pouvoir utiliser docker-compose directement depuis la machine hôte
+  # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-docker-in-docker-executor
+  image: docker:stable
+  stage: build
+  tags:
+    - gus
+  before_script:
+    - docker info
+  script:
+    - docker compose -f ./docker/prod/docker-compose.yml build gusmetal-back
+  rules:
+    # On build uniquement si on est sur la branche main et que les tests ont réussi
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On build uniquement si du code a été modifié dans le dossier server
+      changes:
+        - server/src/**/*
+        - server/pom.xml
+      when: on_success
+build-front:
+  # On utilise le runner shell pour pouvoir utiliser docker-compose directement depuis la machine hôte
+  # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-docker-in-docker-executor
+  image: docker:stable
+  stage: build
+  tags:
+    - gus
+  before_script:
+    - docker info
+  script:
+    # Curl the artifact from the build-mobile job
+    # - curl --output front/public/gusmetal.apk $CI_API_V4_URL/projects/18617/jobs/$CI_JOB_ID/artifacts/mobile/app/build/outputs/apk/debug/app-debug.apk?job=build-mobile
+    # Move the apk to the right folder
+    - mv mobile/app/build/outputs/apk/debug/app-debug.apk front/public/gusmetal.apk
+    # Build the front
+    - docker compose -f ./docker/prod/docker-compose.yml build gusmetal-front
+  rules:
+    # On build uniquement si on est sur la branche main et que les tests ont réussi
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On build uniquement si du code a été modifié dans le dossier front ou mobile
+      changes:
+        - front/app/**/*
+        - front/public/**/*
+        - front/package.json
+        - front/next.config.js
+        - front/tsconfig.json
+        - mobile/app/**/*
+        - mobile/build.gradle
+        - mobile/gradle.properties
+        - mobile/settings.gradle
+      when: on_success
+deploy:
+  # On utilise le runner shell pour pouvoir utiliser docker-compose directement depuis la machine hôte
+  # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-docker-in-docker-executor
+  image: docker:stable
+  stage: deploy
+  tags:
+    - gus
+  before_script:
+    - docker info
+  script:
+    - docker compose -f ./docker/prod/docker-compose.yml down
+    - docker compose -f ./docker/prod/docker-compose.yml up -d
+  rules:
+    # On déploit uniquement si on est sur la branche main, que les tests ont réussi et que le build a réussi
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      # On déploit uniquement si du code a été modifié
+      changes:
+        - server/src/**/*
+        - server/pom.xml
+        - front/app/**/*
+        - front/public/**/*
+        - front/package.json
+        - front/next.config.js
+        - front/tsconfig.json
+        - mobile/app/**/*
+        - mobile/build.gradle
+        - mobile/gradle.properties
+        - mobile/settings.gradle
+      when: on_success

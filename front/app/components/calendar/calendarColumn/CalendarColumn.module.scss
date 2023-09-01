@@ -1,0 +1,31 @@
+.colonne {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    .rows {
+        display: grid;
+
+        div{
+            width: 100%;
+            border-top: 2px dashed var(--grey-very-light);
+            border-right: 2px dashed var(--grey-very-light);
+        }
+    }
+
+    .timeDifference{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        color: var(--grey-dark);
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+
+        .pause{
+            padding: var(--small-padding);
+            background-color: var(--white);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.settings {
+    display: grid;
+    place-items: center;
+    a {
+        svg {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}

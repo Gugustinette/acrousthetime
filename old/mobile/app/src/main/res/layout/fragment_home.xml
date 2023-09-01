@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Month"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="94dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Year"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/darkGrey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/month"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/dropdown_edts"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="15dp"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/lightGrey"
+        android:background="@color/lightGreyBg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/year"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/component_semaine"
+        android:name="com.example.acrousthetime.ui.components.semaine.ComponentSemaines"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/year"
+
+
+        />
+
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/component_calendrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="7dp"
+        android:name="com.example.acrousthetime.ui.components.calendrier.ComponentCalendrier"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day" />
+
+    <Button
+        android:id="@+id/home_previous_day"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="@string/chevron_bas"
+        android:backgroundTint="@color/lessLightGrey"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/component_calendrier"
+        app:layout_constraintEnd_toStartOf="@+id/day"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/component_semaine"
+        tools:backgroundTint="@color/lessLightGrey"/>
+
+    <Button
+        android:id="@+id/home_next_day"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="@string/chevron_haut"
+        android:backgroundTint="@color/lessLightGrey"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/component_calendrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/day"
+        app:layout_constraintTop_toBottomOf="@+id/component_semaine"
+        tools:backgroundTint="@color/lessLightGrey"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

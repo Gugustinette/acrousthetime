@@ -1,0 +1,74 @@
+.semaine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 58px;
+    max-width: 500px;
+    border-radius: 58px;
+    background-color: var(--grey-very-light);
+    padding: 0 20px;
+
+    span {
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+
+        svg {
+            height: 30px;
+            width: 30px;
+            fill: var(--grey-dark);
+        }
+
+        &:first-child {
+            svg {
+                transform: rotate(90deg);
+            }
+        }
+        &:last-child {
+            svg {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+}
+
+.semaine_content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    overflow-x: scroll;
+    // Hide scrollbar for IE, Edge and Firefox
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    // Hide scrollbar for Chrome, Safari and Opera
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.semaine_object {
+    display: grid;
+    place-content: center;
+    height: 30px;
+    width: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    color: var(--grey-dark);
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+        background-color: var(--grey-light);
+        transition: all 0.1s ease-in;
+    }
+}
+
+.semaine_object__active {
+    background-color: var(--black);
+    color: var(--white);
+
+    &:hover {
+        background-color: var(--black);
+    }
+}

@@ -1,0 +1,24 @@
+.infos {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--medium-padding);
+}
+
+.hgroup {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--column-gap);
+    align-items: center;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--grey-dark);
+    }
+}
+
+.vgroup {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--row-gap);
+}

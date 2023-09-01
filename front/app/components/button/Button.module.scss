@@ -1,0 +1,140 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: var(--column-gap);
+
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--medium-padding);
+
+    color: var(--grey-dark);
+    font-size: 14px;
+    background-color: var(--grey-background);
+
+    fill: var(--grey-light);
+
+    height: var(--inputs-height);
+
+    text-align: center;
+    width: fit-content;
+
+    transition: 0.1s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--grey-hover);
+    }
+
+
+    &:active {
+        background-color: var(--grey-background);
+    }
+
+    Svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.red {
+    background-color: var(--red-background);
+    color: var(--red-dark);
+
+    svg {
+        fill: var(--red-light);
+    }
+
+    &:hover {
+        background-color: var(--red-hover);
+
+        svg {
+            fill: var(--red-light);
+        }
+    }
+
+    &:active {
+        background-color: var(--red-background);
+    }
+}
+
+.blue {
+    background-color: var(--blue-background);
+    color: var(--blue-dark);
+
+    svg {
+        fill: var(--blue-light);
+    }
+
+    &:hover {
+        background-color: var(--blue-hover);
+
+        svg {
+            fill: var(--blue-light);
+        }
+    }
+
+    &:active {
+        background-color: var(--blue-background);
+    }
+}
+
+.darkBlue {
+    background-color: var(--blue-dark);
+    color: var(--white);
+
+    svg {
+        fill: var(--white);
+    }
+
+    &:hover {
+        background-color: var(--blue-dark-hover);
+    }
+
+    &:active {
+        background-color: var(--blue-dark);
+    }
+}
+
+.orange {
+    background-color: var(--orange-background);
+    color: var(--orange-dark);
+
+    svg {
+        fill: var(--orange-light);
+    }
+
+    &:hover {
+        background-color: var(--orange-hover);
+
+        svg {
+            fill: var(--orange-light);
+        }
+    }
+
+    &:active {
+        background-color: var(--orange-background);
+    }
+}
+
+.green {
+    background-color: var(--green-background);
+    color: var(--green-dark);
+
+    svg {
+        fill: var(--green-light);
+    }
+
+    &:hover {
+        background-color: var(--green-hover);
+
+        svg {
+            fill: var(--green-light);
+        }
+    }
+
+    &:active {
+        background-color: var(--green-background);
+    }
+}

@@ -1,0 +1,23 @@
+.routes {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    li {
+        height: 50px;
+        a {
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            display: grid;
+            place-items: center;
+            svg {
+                height: 30px;
+                width: 30px;
+                fill: var(--grey-dark);
+            }
+        }
+    }
+}

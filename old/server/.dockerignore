@@ -1,0 +1,3 @@
+# Docker Ignore for Maven Application Spring Boot
+target/
+data/

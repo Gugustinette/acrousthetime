@@ -1,0 +1,18 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker-compose-dev",
+      "type": "shell",
+      "command": "docker compose -f ./docker/dev/docker-compose.yml up",
+      "isBackground": true,
+    },
+    {
+      "label": "docker-compose-dev-build",
+      "type": "shell",
+      "command": "docker compose -f ./docker/dev/docker-compose.yml up --build",
+      "isBackground": true,
+    },
+  ]
+}

@@ -1,0 +1,48 @@
+.main {
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    width: 100%;
+    overflow-y: scroll;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .form {
+        display: flex;
+        align-items: center;
+        background-color: var(--blue-background);
+        padding: var(--big-padding);
+        border-radius: var(--border-radius);
+        color: var(--blue-dark);
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1300px;
+    }
+
+    .hgroup {
+        display: flex;
+        flex-direction: row;
+        column-gap: var(--column-gap);
+        width: 100%;
+        max-width: 1300px;
+    }
+
+    .chips {
+        margin-bottom: var(--medium-margin);
+    }
+
+    .reservation {
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--grey-very-light);
+        }
+    }
+
+    .month {
+        width: 100%;
+        max-width: 1300px;
+    }
+}

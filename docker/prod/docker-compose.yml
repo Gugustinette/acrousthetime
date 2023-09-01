@@ -1,0 +1,46 @@
+# Docker compose file for Production
+
+services:
+  # Back-end service
+  gusmetal-back:
+    build:
+      context: ../../server
+      dockerfile: docker/Dockerfile.prod
+    ports:
+      - "10000:8080"
+    env_file:
+      - ../../server/docker/.env
+    container_name: gusmetal-back
+    depends_on:
+      gusmetal-db:
+        condition: service_healthy
+    links:
+      - gusmetal-db:db
+
+  # Front-end service
+  gusmetal-front:
+    build:
+      context: ../../front
+      dockerfile: docker/Dockerfile.prod
+    ports:
+      - "10001:3000"
+    # env_file:
+    #   - ../../front/docker/.env.production
+    container_name: gusmetal-front
+    depends_on:
+      - gusmetal-back
+
+  # Database Service
+  gusmetal-db:
+    image: mariadb:10.11.3
+    container_name: gusmetal-db
+    env_file:
+      - ../../database/.env
+    volumes:
+      - /var/gusmetal/db:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 10s
+      timeout: 10s
+      retries: 10

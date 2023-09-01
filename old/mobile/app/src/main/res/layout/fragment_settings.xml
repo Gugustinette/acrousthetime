@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/settings_profile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Photo de profile"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/settings_pdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_profile_title"
+            tools:src="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/settings_edit_pdp"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/modifier_la_photo"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/bigLightGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_pdp"
+            tools:backgroundTint="@color/bigLightGray"/>
+
+        <Button
+            android:id="@+id/settings_delete_pdp"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/supprimer_la_photo"
+            android:textColor="@color/red"
+            android:backgroundTint="@color/lightRed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_edit_pdp"
+            tools:backgroundTint="@color/lightRed" />
+
+        <TextView
+            android:id="@+id/settings_nom_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nom_n_maj"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_delete_pdp" />
+
+        <EditText
+            android:id="@+id/settings_nom_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/doe"
+            android:textColorHint="@color/hintGray"
+            android:inputType="text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_nom_title"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/settings_prenom_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/pr_nom"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_nom_input" />
+
+        <EditText
+            android:id="@+id/settings_prenom_input"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/john"
+            android:textColorHint="@color/hintGray"
+            android:inputType="text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_prenom_title"
+            tools:ignore="TextFields" />
+
+        <Button
+            android:id="@+id/settings_edit_account_button"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/enregistrer_les_modifications"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/bigLightGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_prenom_input"
+            tools:backgroundTint="@color/bigLightGray" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

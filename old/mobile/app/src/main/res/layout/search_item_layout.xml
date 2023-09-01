@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/search_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_settings_24"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/search_name"
+        android:layout_width="216dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/nom"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_icon"
+        app:layout_constraintStart_toEndOf="@+id/search_icon"
+        app:layout_constraintTop_toTopOf="@+id/search_icon" />
+
+    <ImageView
+        android:id="@+id/search_favoris"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search_name"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_heart" />
+</androidx.constraintlayout.widget.ConstraintLayout>

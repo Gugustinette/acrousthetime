@@ -1,0 +1,103 @@
+.creneau {
+    position: absolute;
+
+    &:hover{
+        cursor: pointer;
+        
+        .red{
+            background-color: var(--red-hover);
+        }
+        
+        .green{
+            background-color: var(--green-hover);
+        }
+        
+        .orange{
+            background-color: var(--orange-hover);
+        }
+        
+        .blue{
+            background-color: var(--blue-hover);
+        }
+    }
+
+    .creneauTest {
+        display: flex;
+        flex-direction: column;
+        padding: var(--creneau-padding);
+        border-radius: var(--border-radius);
+        height: 100%;
+        margin: var(--creneau-margin);
+        overflow: hidden;
+    }
+
+    .cours {
+        font-weight: bold;
+    }
+
+    .cours,
+    .prof {
+        font-size: var(--medium-font);
+    }
+
+    .salle,
+    .horaire {
+        font-size: var(--small-font);
+    }
+}
+
+.blue {
+    background-color: var(--blue-background);
+
+    .cours,
+    .prof {
+        color: var(--blue-dark);
+    }
+
+    .salle,
+    .horaire {
+        color: var(--blue-light);
+    }
+}
+
+.red {
+    background-color: var(--red-background);
+
+    .cours,
+    .prof {
+        color: var(--red-dark);
+    }
+
+    .salle,
+    .horaire {
+        color: var(--red-light);
+    }
+}
+
+.green {
+    background-color: var(--green-background);
+
+    .cours,
+    .prof {
+        color: var(--green-dark);
+    }
+
+    .salle,
+    .horaire {
+        color: var(--green-light);
+    }
+}
+
+.orange {
+    background-color: var(--orange-background);
+
+    .cours,
+    .prof {
+        color: var(--orange-dark);
+    }
+
+    .salle,
+    .horaire {
+        color: var(--orange-light);
+    }
+}

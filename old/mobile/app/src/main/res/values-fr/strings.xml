@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ACrousTheTime</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_reservation">Réservation</string>
+    <string name="button_selectedt">Selection EDT</string>
+    <string name="buttonSelectEDT">Select Timetable</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Recherche</string>
+    <string name="recherche">Recherche</string>
+    <string name="type">Type</string>
+    <string name="nom">nom</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="adresse_email">Adresse email</string>
+    <string name="connexion">Connexion</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="tu_n_as_pas_de_compte">Tu n\'as pas de compte ?</string>
+    <string name="cr_e_le_ici">Crée le ici</string>
+    <string name="pr_nom">Prénom</string>
+    <string name="confirmation_du_mot_de_passe">Confirmation du mot de passe</string>
+    <string name="nom_n_maj">Nom</string>
+    <string name="s_inscrire">S\'inscrire</string>
+    <string name="connecte_toi_ici">Connecte toi ici</string>
+    <string name="tu_as_d_j_un_compte">Tu as déjà un compte ?</string>
+    <string name="confirmer_le_mot_de_passe">Confirmer le mot de passe</string>
+    <string name="inscription">Inscription</string>
+    <string name="enregistrer_les_modifications">Enregistrer les modifications</string>
+    <string name="john">John</string>
+    <string name="doe">Doe</string>
+    <string name="supprimer_la_photo">Supprimer la photo</string>
+    <string name="modifier_la_photo">Modifier la photo</string>
+    <string name="settings">Options</string>
+</resources>

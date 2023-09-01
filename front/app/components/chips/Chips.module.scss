@@ -1,0 +1,82 @@
+.chips {
+    display: flex;
+    align-items: center;
+    height: 24px;
+
+    column-gap: var(--column-gap);
+
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--medium-padding);
+
+    color: var(--grey-dark);
+    font-size: 14px;
+    background-color: var(--grey-background);
+
+    transition: 0.1s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--grey-hover);
+    }
+
+    &:active {
+        background-color: var(--grey-background);
+    }
+}
+
+.red {
+    background-color: var(--red-background);
+    border-color: var(--red-background);
+    color: var(--red-dark);
+
+    &:hover {
+        background-color: var(--red-hover);
+    }
+
+    &:active {
+        background-color: var(--red-background);
+    }
+}
+
+.blue {
+    background-color: var(--blue-background);
+    border-color: var(--blue-background);
+    color: var(--blue-dark);
+
+    &:hover {
+        background-color: var(--blue-hover);
+    }
+
+    &:active {
+        background-color: var(--blue-background);
+    }
+}
+
+.orange {
+    background-color: var(--orange-background);
+    border-color: var(--orange-background);
+    color: var(--orange-dark);
+
+    &:hover {
+        background-color: var(--orange-hover);
+    }
+
+    &:active {
+        background-color: var(--orange-background);
+    }
+}
+
+.green {
+    background-color: var(--green-background);
+    border-color: var(--green-background);
+    color: var(--green-dark);
+
+    &:hover {
+        background-color: var(--green-hover);
+    }
+
+    &:active {
+        background-color: var(--green-background);
+    }
+}

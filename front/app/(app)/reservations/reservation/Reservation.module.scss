@@ -1,0 +1,82 @@
+.reservation {
+    padding: var(--reservation-padding);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    .date {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .heure {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .salle {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+
+    .status {
+        grid-area: 1 / 4 / 2 / 5;
+
+        span {
+            padding: var(--status-padding);
+            border-radius: var(--border-radius);
+            height: fit-content;
+            width: fit-content;
+        }
+    }
+
+    .annuler {
+        grid-area: 1 / 5 / 2 / 7;
+        display: flex;
+        justify-content: end;
+    }
+
+    .info {
+        &:not(:last-child) {
+            margin-right: 50px;
+        }
+    }
+}
+
+.hgroup {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--column-gap);
+    align-items: center;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--grey-dark);
+    }
+}
+
+.vgroup {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--row-gap);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.grey {
+    color: var(--grey-dark);
+}
+
+.accepted {
+    color: var(--green-dark);
+    background-color: var(--green-background);
+}
+
+.refused {
+    color: var(--red-dark);
+    background-color: var(--red-background);
+}
+
+.pending {
+    color: var(--orange-dark);
+    background-color: var(--orange-background);
+}

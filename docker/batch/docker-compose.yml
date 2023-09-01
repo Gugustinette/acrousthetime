@@ -1,0 +1,35 @@
+# Docker compose file for Batch Development
+
+services:
+  # Back-end service
+  gusmetal-batch-importics:
+    build:
+      context: ../../server
+      dockerfile: docker/Dockerfile.importics.dev
+    ports:
+      - "10000:8080"
+    env_file:
+      - ../../server/docker/.env
+    volumes:
+      - ../../server/src:/app/src
+    container_name: gusmetal-batch-importics
+    depends_on:
+      gusmetal-batch-db:
+        condition: service_healthy
+    links:
+      - gusmetal-batch-db:db
+
+  # Database Service
+  gusmetal-batch-db:
+    image: mariadb:10.11.3
+    container_name: gusmetal-batch-db
+    env_file:
+      - ../../database/.env
+    volumes:
+      - ../../database/db:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 55

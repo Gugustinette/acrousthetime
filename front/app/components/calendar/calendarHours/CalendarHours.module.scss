@@ -1,0 +1,15 @@
+.total{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--grey-dark);
+}
+
+.rows {
+    display: grid;
+
+    .row {
+        width: 100%;
+        padding-left: 15px;
+    }
+}

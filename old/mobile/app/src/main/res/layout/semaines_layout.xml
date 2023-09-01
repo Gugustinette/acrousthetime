@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- linear layout -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="70dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/weekButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/lessLightGrey"
+        android:text="32"
+        android:textColor="@color/darkGrey"
+        android:textSize="15sp"
+        app:cornerRadius="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        />
+
+</LinearLayout>

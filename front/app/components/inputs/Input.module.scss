@@ -1,0 +1,117 @@
+.inputContainer {
+    position: relative;
+
+    .input {
+        padding: var(--medium-padding);
+        border: none;
+        border-radius: var(--border-radius);
+        font-size: var(--medium-font);
+        background-color: var(--white);
+        color: var(--grey-dark);
+        width: 100%;
+
+        height: var(--inputs-height);
+
+        box-shadow: 0px 0px 4px rgba(210, 218, 255, 0.6);
+
+        &::placeholder {
+            color: var(--grey-dark);
+        }
+
+        &:focus-visible {
+            outline: 1px solid var(--grey-light);
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-text-fill-color: var(--grey-dark) !important;
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+        }
+    }
+
+    .passwordIcon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+
+        Svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        svg {
+            fill: var(--grey-dark);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .red {
+        color: var(--red-dark);
+
+        svg {
+            fill: var(--red-dark);
+        }
+
+        &::placeholder {
+            color: var(--red-dark);
+        }
+
+        &:focus-visible {
+            outline: 1px solid var(--red-light);
+        }
+    }
+
+    .blue {
+        color: var(--blue-dark);
+
+        svg {
+            fill: var(--blue-dark);
+        }
+
+        &::placeholder {
+            color: var(--blue-dark);
+        }
+
+        &:focus-visible {
+            outline: 1px solid var(--blue-light);
+        }
+    }
+
+    .orange {
+        color: var(--orange-dark);
+
+        svg {
+            fill: var(--orange-dark);
+        }
+
+        &::placeholder {
+            color: var(--orange-dark);
+        }
+
+        &:focus-visible {
+            outline: 1px solid var(--orange-light);
+        }
+    }
+
+    .green {
+        color: var(--green-dark);
+
+        svg {
+            fill: var(--green-dark);
+        }
+
+        &::placeholder {
+            color: var(--green-dark);
+        }
+
+        &:focus-visible {
+            outline: 1px solid var(--green-light);
+        }
+    }
+}

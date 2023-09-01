@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">ACrousTheTime</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_reservation">Booking</string>
+    <string name="button_selectedt">Select Timetable</string>
+    <string-array name="arrayEdts">
+        <item>C</item>
+        <item>C++</item>
+        <item>Java</item>
+        <item>JavaScript</item>
+        <item>VisualBasic</item>
+    </string-array>
+    <string name="buttonSelectEDT">Select Timetable</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="recherche">Search</string>
+    <string name="type">Type</string>
+    <string name="nom">name</string>
+    <string name="mot_de_passe">Password</string>
+    <string name="adresse_email">Email</string>
+    <string name="connexion">Login</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="se_connecter">Login</string>
+    <string name="tu_n_as_pas_de_compte">You don\'t avec account</string>
+    <string name="cr_e_le_ici">Create it here</string>
+    <string name="pr_nom">First Name</string>
+    <string name="confirmation_du_mot_de_passe">Confirm password</string>
+    <string name="nom_n_maj">Name</string>
+    <string name="s_inscrire">Sign up</string>
+    <string name="connecte_toi_ici">Login here</string>
+    <string name="tu_as_d_j_un_compte">You already have an account ?</string>
+    <string name="confirmer_le_mot_de_passe">Confirm password</string>
+    <string name="inscription">Sign up</string>
+    <string name="enregistrer_les_modifications">Save changes</string>
+    <string name="john">John</string>
+    <string name="doe">Doe</string>
+    <string name="supprimer_la_photo">Delete picture</string>
+    <string name="modifier_la_photo">Edit picture</string>
+    <string name="settings">Settings</string>
+    <string name="chevron_bas"><![CDATA[<]]></string>
+    <string name="chevron_haut"><![CDATA[>]]></string>
+</resources>
