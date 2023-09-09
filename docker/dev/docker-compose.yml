@@ -2,25 +2,25 @@
 
 services:
   # Back-end service
-  gusmetal-back:
+  acrousthetime-back:
     build:
       context: ../../server
       dockerfile: docker/Dockerfile.dev
     ports:
-      - "10000:8080"
+      - "10000:3000"
     env_file:
       - ../../server/docker/.env
     volumes:
       - ../../server/src:/app/src
-    container_name: gusmetal-back
+    container_name: acrousthetime-back
     depends_on:
-      gusmetal-db:
+      acrousthetime-db:
         condition: service_healthy
     links:
-      - gusmetal-db:db
+      - acrousthetime-db:db
 
   # Front-end service
-  gusmetal-front:
+  acrousthetime-front:
     build:
       context: ../../front
       dockerfile: docker/Dockerfile.dev
@@ -31,37 +31,36 @@ services:
     volumes:
       - ../../front/app:/app/app
       - ../../front/public:/app/public
-      # - ../../mobile/app/build/outputs/apk/debug/app-debug.apk:/app/public/gusmetal.apk
-    container_name: gusmetal-front
+      # - ../../mobile/app/build/outputs/apk/debug/app-debug.apk:/app/public/acrousthetime.apk
+    container_name: acrousthetime-front
     depends_on:
-      - gusmetal-back
+      - acrousthetime-back
 
   # Database Service
-  gusmetal-db:
-    image: mariadb:10.11.3
-    container_name: gusmetal-db
+  acrousthetime-db:
+    image: postgres:15.4-alpine
+    container_name: acrousthetime-db
     env_file:
       - ../../database/.env
     volumes:
-      - ../../database/db:/var/lib/mysql
+      - ../../database/db:/var/lib/postgresql/data
     healthcheck:
-      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      start_period: 5s
-      interval: 5s
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
       timeout: 5s
-      retries: 55
+      retries: 100
 
   # Adminer
-  gusmetal-adminer:
+  acrousthetime-adminer:
     image: adminer:4.8.1
-    container_name: gusmetal-adminer
+    container_name: acrousthetime-adminer
     ports:
       - "10002:8080"
     environment:
       # Designs listed at : https://github.com/vrana/adminer/tree/master/designs
       ADMINER_DESIGN: dracula
     depends_on:
-      gusmetal-db:
+      acrousthetime-db:
         condition: service_healthy
     links:
-      - gusmetal-db:db
+      - acrousthetime-db:db

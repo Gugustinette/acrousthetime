@@ -1,0 +1,61 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "id": "2aa5c142-b4cc-4f00-9868-1cc575c2a8ab",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "creneaux": {
+      "name": "creneaux",
+      "schema": "",
+      "columns": {
+        "uid": {
+          "name": "uid",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "dt_start": {
+          "name": "dt_start",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dt_end": {
+          "name": "dt_end",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "summary": {
+          "name": "summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "matiere": {
+          "name": "matiere",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_update": {
+          "name": "last_update",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

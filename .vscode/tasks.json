@@ -6,13 +6,13 @@
       "label": "docker-compose-dev",
       "type": "shell",
       "command": "docker compose -f ./docker/dev/docker-compose.yml up",
-      "isBackground": true,
+      "isBackground": true
     },
     {
       "label": "docker-compose-dev-build",
       "type": "shell",
       "command": "docker compose -f ./docker/dev/docker-compose.yml up --build",
-      "isBackground": true,
-    },
+      "isBackground": true
+    }
   ]
 }

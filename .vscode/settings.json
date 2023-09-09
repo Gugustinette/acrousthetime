@@ -1,5 +1,10 @@
 {
-    "java.configuration.updateBuildConfiguration": "disabled",
-    "java.compile.nullAnalysis.mode": "disabled",
-    "files.eol": "\n"
+  "java.configuration.updateBuildConfiguration": "disabled",
+  "java.compile.nullAnalysis.mode": "disabled",
+  "files.eol": "\n",
+  // Tab size
+  "editor.tabSize": 2,
+  // Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
