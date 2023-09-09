@@ -1,17 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
 
 // Drizzle ORM
-/*
-import { drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
-const client = postgres(Bun.env.DATABASE_URL);
-const db = drizzle(client);
-*/
+import { PG_CONNECTION } from '../constants';
 import { creneaux, Creneau, NewCreneau } from '../schemas/creneau';
 
 @Injectable()
 export class CreneauService {
-  constructor(@Inject('PG_CONNECTION') private db: any) {}
+  constructor(@Inject(PG_CONNECTION) private db: any) {}
 
   async getAllCreneaux(): Promise<Creneau[]> {
     return this.db.select().from(creneaux);
