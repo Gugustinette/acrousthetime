@@ -1,6 +1,9 @@
 # Dockerfile for Nest with Bun
 FROM oven/bun:1.0
 
+# Install procps so Nest can use the `ps` command
+RUN apt-get update && apt-get install -y procps
+
 # Create app directory
 WORKDIR /app
 
